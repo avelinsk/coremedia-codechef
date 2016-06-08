@@ -38,6 +38,8 @@ public class ComputeBoundary {
    * the root to the leaves, followed by the leaf nodes from left to right, and lastly
    * followed by the nodes on the right boundary from the leaves up to the root node.
    *
+   * <p>The returned list does not contain duplicate nodes.
+   *
    * @param node tree node
    * @param <T> type of data in tree nodes
    * @return list of nodes at boundary, empty list if node is null
