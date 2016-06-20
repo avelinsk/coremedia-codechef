@@ -1,0 +1,7 @@
+hund
+katze
+maus
+
+elefant
+bratwurst   
+schinkenspeck
