@@ -52,7 +52,13 @@ public class WordChain {
 	// === FINDING WORD CHAINS ===
 	
 	public List<String> findShortestWordChain(String from, String to) {
-		return Collections.emptyList();
+		Map<String, String> tree = new HashMap<>();
+		
+		tree.put(from, null);
+		
+		traverseTree(tree, Collections.singletonList(from), to);
+		
+		return getWordChain(tree, to);
 	}
 	
 	private void traverseTree(Map<String, String> tree, List<String> parentStage, String stopWord) {
