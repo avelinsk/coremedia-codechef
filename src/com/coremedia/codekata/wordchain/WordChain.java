@@ -13,9 +13,7 @@ import java.util.Map;
 
 public class WordChain {
 	
-	private String wordListFile;
 	
-	private Map<Integer, List<String>> wordLists = new HashMap<>();
 
 	public static void main(String[] args) throws IOException {
 		
@@ -25,19 +23,42 @@ public class WordChain {
 		
 		chain.printHistogram();
 		
+		System.out.println("==================================");
+		System.out.println("Finding WordChain 'lead' -> 'gold'");
+		long time = System.currentTimeMillis();
+		
+		List<String> wordChain = chain.findShortestWordChain("lead", "gold");
+		
+		time = System.currentTimeMillis() - time;
+		
+		System.out.println(wordChain.size()==0 ? "No solution found" : wordChain);
+		
+		System.out.println("Time " + time + " ms");
+
+		System.out.println("==================================");
+		
+		
 
 	}
+	
+	
+	
+	// === CONSTRUCTOR ===
 	
 	public WordChain(String wordListFile) {
 		this.wordListFile = wordListFile;
 	}
+	
+	// === FINDING WORD CHAINS ===
 	
 	public List<String> findShortestWordChain(String from, String to) {
 		return Collections.emptyList();
 	}
 	
 	
-	// === Handling Word Lists ===
+	
+	
+	// === HANDLING WORD LISTS ===
 	
 	public void initializeWordLists() throws IOException {
 		BufferedReader reader = getWordListReader();
@@ -77,10 +98,15 @@ public class WordChain {
 	public void printHistogram() {
 		List<Integer> lengths = new LinkedList<>(wordLists.keySet());
 		Collections.sort(lengths);
-		
+		System.out.println("==============================");
+		System.out.println("Histogram: ");
 		for (Integer i : lengths) {
-			System.out.println(String.format("%d chars :  %d words", i, wordLists.get(i).size()));
+			System.out.println(String.format("  %2d chars :  %d words", i, wordLists.get(i).size()));
 		}
 	}
 
+	// === ATTRIBUTES ===
+	
+	private String wordListFile;
+	private Map<Integer, List<String>> wordLists = new HashMap<>();
 }
