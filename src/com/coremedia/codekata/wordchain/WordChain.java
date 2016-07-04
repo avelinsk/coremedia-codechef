@@ -24,10 +24,10 @@ public class WordChain {
 		chain.printHistogram();
 		
 		System.out.println("==================================");
-		System.out.println("Finding WordChain 'lead' -> 'gold'");
+		System.out.println("Finding WordChain 'mouse' -> 'cheese'");
 		long time = System.currentTimeMillis();
 		
-		List<String> wordChain = chain.findShortestWordChain("lead", "gold");
+		List<String> wordChain = chain.findShortestWordChain("mouse", "cheese");
 		
 		time = System.currentTimeMillis() - time;
 		
@@ -36,7 +36,6 @@ public class WordChain {
 		System.out.println("Time " + time + " ms");
 
 		System.out.println("==================================");
-		
 		
 
 	}
@@ -62,6 +61,7 @@ public class WordChain {
 	}
 	
 	private void traverseTree(Map<String, String> tree, List<String> parentStage, String stopWord) {
+		System.out.println("[DEBUG] Words on stage: " + parentStage.size());
 		List<String> nextStage = new LinkedList<>();
 		for (String parent : parentStage) {
 			List<String> similarWords = findSimilarWords(parent);
@@ -88,10 +88,20 @@ public class WordChain {
 				similarWords.add(w);
 			}
 		};
+		for (String w : getWordList(word.length()-1)) {
+			if (isSimilar(w, word)) {
+				similarWords.add(w);
+			}
+		};
+		for (String w : getWordList(word.length()+1)) {
+			if (isSimilar(w, word)) {
+				similarWords.add(w);
+			}
+		};
 		return similarWords;
 	}
 	
-	private boolean isSimilar(String a, String b) {
+	public boolean isSimilar(String a, String b) {
 		char[] charA = a.toCharArray();
 		char[] charB = b.toCharArray();
 		if (charA.length == charB.length) {
@@ -99,6 +109,19 @@ public class WordChain {
 			for (int i=0; i<a.length() && diff<=1; i++) {
 				if (charA[i]!=charB[i]) {
 					diff++;
+				}
+			}
+			return diff == 1;
+		}
+		else if (Math.abs(charA.length - charB.length) == 1) {
+			char[] longChars = (charA.length > charB.length) ? charA : charB;
+			char[] shortChars = (charA.length > charB.length) ? charB : charA;
+			int diff = 0;
+			int l, s;
+			for (l=0,s=0; l<longChars.length && s<shortChars.length && diff<=1; l++, s++) {
+				if (longChars[l]!=shortChars[s]) {
+					diff++;
+					s--;
 				}
 			}
 			return diff == 1;
@@ -150,7 +173,8 @@ public class WordChain {
 	}
 	
 	private List<String> getWordList(int length) {
-		return Collections.unmodifiableList(wordLists.get(length));
+		List<String> list = wordLists.get(length);
+		return (List<String>) (list==null ? Collections.emptyList() : Collections.unmodifiableList(list));
 	}
 	
 	public void printHistogram() {
