@@ -62,7 +62,23 @@ public class WordChain {
 	}
 	
 	private void traverseTree(Map<String, String> tree, List<String> parentStage, String stopWord) {
+		List<String> nextStage = new LinkedList<>();
+		for (String parent : parentStage) {
+			List<String> similarWords = findSimilarWords(parent);
+			for (String word : similarWords) {
+				if (!tree.containsKey(word)) {
+					tree.put(word, parent);
+					nextStage.add(word);
+					if (word.equals(stopWord)) {
+						return;
+					}
+				}
+			}
+		}
 		
+		if (!nextStage.isEmpty()) {
+			traverseTree(tree, nextStage, stopWord);
+		}
 	}
 	
 	private List<String> findSimilarWords(String word) {
