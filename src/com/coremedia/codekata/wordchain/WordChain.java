@@ -91,7 +91,13 @@ public class WordChain {
 	}
 	
 	private List<String> getWordChain(Map<String,String> tree, String endWord) {
-		return Collections.emptyList();
+		List<String> chain = new LinkedList<>();
+		String word = endWord;
+		while (word!=null) {
+			chain.add(0, word);
+			word = tree.get(word);
+		}
+		return chain;
 	}
 	
 	// === HANDLING WORD LISTS ===
