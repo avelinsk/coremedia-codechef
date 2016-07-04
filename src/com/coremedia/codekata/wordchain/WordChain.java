@@ -64,7 +64,17 @@ public class WordChain {
 	}
 	
 	private boolean isSimilar(String a, String b) {
-		
+		char[] charA = a.toCharArray();
+		char[] charB = b.toCharArray();
+		if (charA.length == charB.length) {
+			int diff = 0;
+			for (int i=0; i<a.length() && diff<=1; i++) {
+				if (charA[i]!=charB[i]) {
+					diff++;
+				}
+			}
+			return diff == 1;
+		}
 		return false;
 	}
 	
