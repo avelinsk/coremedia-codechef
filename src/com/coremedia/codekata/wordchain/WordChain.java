@@ -60,7 +60,13 @@ public class WordChain {
 	}
 	
 	private List<String> findSimilarWords(String word) {
-		return Collections.emptyList();
+		List<String> similarWords = new LinkedList<>();
+		for (String w : getWordList(word.length())) {
+			if (isSimilar(w, word)) {
+				similarWords.add(w);
+			}
+		};
+		return similarWords;
 	}
 	
 	private boolean isSimilar(String a, String b) {
