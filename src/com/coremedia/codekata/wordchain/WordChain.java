@@ -55,8 +55,22 @@ public class WordChain {
 		return Collections.emptyList();
 	}
 	
+	private void traverseTree(Map<String, String> tree, List<String> parentStage, String stopWord) {
+		
+	}
 	
+	private List<String> findSimilarWords(String word) {
+		return Collections.emptyList();
+	}
 	
+	private boolean isSimilar(String a, String b) {
+		
+		return false;
+	}
+	
+	private List<String> getWordChain(Map<String,String> tree, String endWord) {
+		return Collections.emptyList();
+	}
 	
 	// === HANDLING WORD LISTS ===
 	
