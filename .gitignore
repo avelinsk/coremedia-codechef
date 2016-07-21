@@ -1,0 +1,41 @@
+# IntelliJ Idea:
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Maven:
+target/
+overlays/
+.m2/
+# maven 3.3 extensions
+# takari concurrent local repo
+.mvn/timing.properties
+
+# Eclipse:
+.classpath
+.project
+.settings/
+
+# Logs:
+*.log
+*.out
+.npm-debug.log
+
+# Git:
+*.orig
+*.rej
+
+# OS X:
+.DS_Store
+
+# Emacs
+*~
+
+# jenkins
+.repository
+
+# TeX
+*.aux
+*.lof
+*.toc
