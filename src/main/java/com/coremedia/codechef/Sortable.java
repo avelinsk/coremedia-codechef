@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Sortable<T> {
 
-  public void add(T element);
+  void add(T element);
 
-  public List<T> getElements();
+  List<T> getElements();
 }

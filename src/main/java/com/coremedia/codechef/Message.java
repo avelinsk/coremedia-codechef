@@ -25,7 +25,7 @@ public class Message implements Sortable<String> {
     StringBuilder stringBuilder = new StringBuilder();
     for (int i = 0; i < 26; i++) {
       int count = hits[i];
-      while(count > 0) {
+      while (count > 0) {
         char c = alphabet.charAt(i);
         stringBuilder.append(c);
         count--;
