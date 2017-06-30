@@ -24,6 +24,9 @@ Example:
 Example calls:
  
 findClosestCommonManager(Milton, Nina): Ulrike
+
 findClosestCommonManager(Nina, Jan): Kevin
+
 findClosestCommonManager(Nina, Frank): Simon
+
 findClosestCommonManager(Nina, Ulrike): Ulrike
