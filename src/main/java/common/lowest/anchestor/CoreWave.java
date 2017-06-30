@@ -1,13 +1,10 @@
-package main.java.common.lowest.anchestor;
+package common.lowest.anchestor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.System.out;
 
-/**
- * Created by emueller on 30.06.17.
- */
 public class CoreWave {
 
   public final Ceo simon = new Ceo("simon");

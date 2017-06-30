@@ -1,8 +1,5 @@
-package main.java.common.lowest.anchestor;
+package common.lowest.anchestor;
 
-/**
- * Created by emueller on 30.06.17.
- */
 import java.util.HashSet;
 import java.util.Set;
 

@@ -1,13 +1,10 @@
-package test.java.common.lowest.anchestor;
+package common.lowest.anchestor;
 
-import main.java.common.lowest.anchestor.CoreWave;
+import common.lowest.anchestor.CoreWave;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by emueller on 30.06.17.
- */
 public class CoreWaveTest {
 
   private CoreWave coreWave = new CoreWave();
