@@ -1,0 +1,52 @@
+# Intellij Idea:
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Maven:
+target/
+overlays/
+.m2
+
+# Eclipse:
+.classpath
+.project
+.settings/
+
+# Logs:
+*.log
+*.out
+
+# Git:
+*.orig
+*.rej
+
+# OS X:
+.DS_Store
+
+# Emacs:
+*~
+# Vagrant:
+.vagrant/
+.vagrantuser
+.repository
+/blueprint/test-data/content/__blob
+/cms-core/search/coremedia-solr-test/solr-home
+berks-cookbooks
+blueprint-tests/test-system-setup/Berksfile.lock
+
+# Styledocco:
+/blueprint/modules/cae/cae-development-resources/src/main/resources/META-INF/resources/themes/reframed/node_modules
+
+# maven 3.3 extensions
+# takari concurrent local repo
+.mvn/timing.properties
+
+#shade plugin
+dependency-reduced-pom.xml
+
+# TeX
+*.aux
+*.lof
+*.toc
